@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/lmx-Hexagram/conflict/internal/project"
+	"github.com/lmx-Hexagram/conflict/internal/commands"
 	"github.com/spf13/cobra"
 	"log"
 )
@@ -18,7 +18,7 @@ var (
 )
 
 func init() {
-	rootCmd.AddCommand(project.CmdNew)
+	rootCmd.AddCommand(commands.NewNewProjectCmd)
 }
 
 func main() {
