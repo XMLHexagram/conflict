@@ -17,3 +17,10 @@
 /.idea
 /.DS_Store
 /pkg/.DS_Store
+/pkg/template/.DS_Store
+
+log
+.DS_Store
+.idea
+/pkg/template/go.mod
+/pkg/template/go.sum
