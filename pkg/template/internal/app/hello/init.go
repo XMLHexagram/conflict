@@ -1,10 +1,10 @@
 package hello
 
 import (
-	"template/internal/service/httpEngine"
+	"conflict-template/internal/service/httpEngine"
 )
 
-func Init()  {
+func Init() {
 	hello := httpEngine.Group("/hello")
-	hello.GET("",sayHello)
+	hello.GET("", sayHello)
 }

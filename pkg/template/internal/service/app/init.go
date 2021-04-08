@@ -1,11 +1,11 @@
 package app
 
 import (
-	"template/internal/app/hello"
-	"template/internal/service/log"
+	"conflict-template/internal/app/hello"
+	"conflict-template/internal/service/log"
 )
 
-func Init()  {
+func Init() {
 	hello.Init()
 
 	log.Info("appService init successfully")

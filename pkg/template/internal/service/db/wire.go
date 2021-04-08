@@ -4,7 +4,7 @@ package db
 
 import (
 	"github.com/google/wire"
-	"template/internal/service/config"
+	"conflict-template/internal/service/config"
 )
 
 func InitDep() *service {

@@ -11,17 +11,18 @@ import (
 
 var NewNewProjectCmd = &cobra.Command{
 	Use:   "new",
-	Short: "Create a service template",
+	Short: "Create a conflict template",
 	Long:  "",
 	RunE:  newProject,
 }
 
 func newProject(cmd *cobra.Command, args []string) error {
 	if len(args) == 0 {
-		fmt.Fprintf(os.Stderr, "\033[31mERROR: project name is required.\033[m Example: kratos new helloworld\n")
+		fmt.Fprintf(os.Stderr, "\033[31mERROR: project name is required.\033[m Example: conflict new helloworld\n")
 		return nil
 	}
 	createpath, err := filepath.Abs(filepath.Clean(args[0]))
+	pkg.Replaces[0].After = args[0]
 	if err != nil {
 		return err
 	}

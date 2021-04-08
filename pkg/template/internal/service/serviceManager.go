@@ -1,16 +1,18 @@
 package service
 
 import (
-	"template/internal/service/app"
-	"template/internal/service/config"
-	"template/internal/service/db"
-	"template/internal/service/httpEngine"
-	"template/internal/service/log"
+	"conflict-template/internal/service/app"
+	"conflict-template/internal/service/config"
+	"conflict-template/internal/service/db"
+	"conflict-template/internal/service/httpEngine"
+	"conflict-template/internal/service/log"
+	"conflict-template/internal/service/toolkit"
 )
 
 func Init() {
 	config.Init()
 	log.Init()
+	toolkit.Init()
 	db.Init()
 	httpEngine.Init()
 	app.Init()

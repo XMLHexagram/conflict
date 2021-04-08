@@ -1,8 +1,8 @@
 package log
 
 import (
+	"conflict-template/internal/service/config"
 	"go.uber.org/zap"
-	"template/internal/service/config"
 )
 
 var logService *service

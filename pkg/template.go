@@ -14,15 +14,15 @@ var ignore = []string{".DS_Store", "template.go", "template_test.go"}
 var normalFileMode = os.FileMode(0644)
 var normalDirMode = os.FileMode(0755)
 
-type replace struct {
-	before string
-	after  string
+type Replace struct {
+	Before string
+	After  string
 }
 
-var replaces = []replace{
+var Replaces = []Replace{
 	{
-		before: "conflict",
-		after:  "test",
+		Before: "conflict-template",
+		After:  "test",
 	},
 }
 
@@ -64,8 +64,8 @@ func GenerateFile(src, dst string) error {
 	if err != nil {
 		return err
 	}
-	for _, v := range replaces {
-		buf = bytes.ReplaceAll(buf, []byte(v.before), []byte(v.after))
+	for _, v := range Replaces {
+		buf = bytes.ReplaceAll(buf, []byte(v.Before), []byte(v.After))
 	}
 	err = ioutil.WriteFile(dst, buf, normalFileMode)
 	if err != nil {

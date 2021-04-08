@@ -1,6 +1,6 @@
 package main
 
-import "template/internal/service"
+import "conflict-template/internal/service"
 
 func main() {
 	service.Init()

@@ -2,9 +2,10 @@ package hello
 
 import (
 	"github.com/gin-gonic/gin"
+	"github.com/go-conflict/toolkit"
 	"net/http"
 )
 
 func sayHello(c *gin.Context) {
-	c.JSON(http.StatusOK, "hello go-conflict")
+	toolkit.SetJson(c, http.StatusOK, "hello go-conflict", nil)
 }

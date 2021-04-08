@@ -6,7 +6,7 @@
 package httpEngine
 
 import (
-	"template/internal/service/config"
+	"conflict-template/internal/service/config"
 )
 
 // Injectors from wire.go:

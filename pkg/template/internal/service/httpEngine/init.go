@@ -1,9 +1,10 @@
 package httpEngine
 
 import (
+	"conflict-template/internal/service/config"
+	"conflict-template/internal/service/log"
 	"github.com/gin-gonic/gin"
-	"template/internal/service/config"
-	"template/internal/service/log"
+	"github.com/go-conflict/toolkit"
 )
 
 type service struct {
@@ -16,7 +17,7 @@ var httpEngineService *service
 func Init() {
 	s := InitDep()
 
-	s.HttpEngine = gin.Default()
+	s.HttpEngine = toolkit.DefaultHttpEngine()
 
 	httpEngineService = s
 
