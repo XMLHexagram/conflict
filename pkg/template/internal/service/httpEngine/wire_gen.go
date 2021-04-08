@@ -3,7 +3,7 @@
 //go:generate go run github.com/google/wire/cmd/wire
 //+build !wireinject
 
-package db
+package httpEngine
 
 import (
 	"template/internal/service/config"
@@ -12,11 +12,9 @@ import (
 // Injectors from wire.go:
 
 func InitDep() *service {
-	v := provideDbMap()
-	dbMap := config.ProvideDbMap()
+	http := config.ProvideHttp()
 	service2 := &service{
-		DbMap:       v,
-		DbConfigMap: dbMap,
+		Http: http,
 	}
 	return service2
 }

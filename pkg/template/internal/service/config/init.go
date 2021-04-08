@@ -1,7 +1,6 @@
 package config
 
 import (
-	"fmt"
 	"github.com/spf13/viper"
 	"path"
 )
@@ -26,8 +25,6 @@ func Init() {
 	if err != nil {
 		panic(err)
 	}
-
-	fmt.Printf("%+v", s.Config)
 
 	configService = s
 }

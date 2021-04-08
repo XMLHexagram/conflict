@@ -3,7 +3,7 @@
 //go:generate go run github.com/google/wire/cmd/wire
 //+build !wireinject
 
-package db
+package log
 
 import (
 	"template/internal/service/config"
@@ -11,12 +11,10 @@ import (
 
 // Injectors from wire.go:
 
-func InitDep() *service {
-	v := provideDbMap()
-	dbMap := config.ProvideDbMap()
+func initDep() *service {
+	log := config.ProvideLog()
 	service2 := &service{
-		DbMap:       v,
-		DbConfigMap: dbMap,
+		Log: log,
 	}
 	return service2
 }

@@ -1,16 +1,15 @@
 //+build wireinject
 
-package db
+package log
 
 import (
 	"github.com/google/wire"
 	"template/internal/service/config"
 )
 
-func InitDep() *service {
+func initDep() *service {
 	wire.Build(
-		provideDbMap,
-		config.ProvideDbMap,
+		config.ProvideLog,
 		wire.Struct(new(service), "*"),
 	)
 

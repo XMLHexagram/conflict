@@ -1,6 +1,6 @@
 //+build wireinject
 
-package db
+package httpEngine
 
 import (
 	"github.com/google/wire"
@@ -9,8 +9,7 @@ import (
 
 func InitDep() *service {
 	wire.Build(
-		provideDbMap,
-		config.ProvideDbMap,
+		config.ProvideHttp,
 		wire.Struct(new(service), "*"),
 	)
 

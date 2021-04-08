@@ -16,11 +16,8 @@ type Server struct {
 }
 
 type Db struct {
-	Driver   string `toml:"Driver"`
-	Address  string `toml:"Address"`
-	User     string `toml:"User"`
-	Password string `toml:"Password"`
-	DBName   string `toml:"DBName"`
+	Driver string `toml:"Driver"`
+	DSN    string `toml:"DSN"`
 }
 
 type DbMap map[string]Db

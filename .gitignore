@@ -19,7 +19,8 @@
 /pkg/.DS_Store
 /pkg/template/.DS_Store
 
-log
+/pkg/template/log
+/log
 .DS_Store
 .idea
 /pkg/template/go.mod

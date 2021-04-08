@@ -1,7 +1,7 @@
 package db
 
 import (
-	"fmt"
+	"go.uber.org/zap"
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
 	"template/internal/service/config"
@@ -11,27 +11,23 @@ import (
 var dbService *service
 
 type service struct {
-	DefaultDb *gorm.DB `wire:"-"`
-	DbMap     config.DbMap
+	DbMap       map[string]*gorm.DB
+	DbConfigMap config.DbMap
 }
 
 func Init() {
 	s := InitDep()
 
-	dsnDefault := fmt.Sprintf("%s:%s@tcp(%s)/%s?charset=utf8mb4&parseTime=True&loc=Local",
-		s.DbMap["default"].User,
-		s.DbMap["default"].Password,
-		s.DbMap["default"].Address,
-		s.DbMap["default"].DBName,
-	)
-
-	NekoMySQL, err := gorm.Open(mysql.Open(dsnDefault), &gorm.Config{})
-	if err != nil {
-		panic(err)
+	for k, v := range s.DbConfigMap {
+		dialector := mysql.Open(v.DSN)
+		db, err := gorm.Open(dialector, &gorm.Config{})
+		if err != nil {
+			log.Panic("can not open db", zap.Error(err))
+		}
+		s.DbMap[k] = db
 	}
 
-	s.DefaultDb = NekoMySQL
-
 	dbService = s
+
 	log.Info("dbService init successfully")
 }

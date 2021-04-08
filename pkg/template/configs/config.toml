@@ -1,15 +1,13 @@
 [Server]
   [Server.Http]
-    Port = "12210"
+    Port = ":12210"
     Timeout = 5
 
 [DbMap]
   [DbMap.Default] #rename to yours
     Driver = "mysql"
-    Address = "localhost"
-    User = "root"
-    Password = "root"
-    DBName = "mysql"
+    DSN = "root:root@tcp(localhost)/mysql?charset=utf8mb4&parseTime=True&loc=Local"
+
 [Log]
   Level = "info"
   ToStd = true # 目前并不起作用

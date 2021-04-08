@@ -1,7 +1,14 @@
 package db
 
-import "gorm.io/gorm"
+import (
+	"errors"
+	"gorm.io/gorm"
+)
 
-func ProvideDefaultDb() *gorm.DB {
-	return dbService.DefaultDb
+func ProvideDb(Name string) (*gorm.DB, error) {
+	db, ok := dbService.DbMap[Name]
+	if !ok {
+		return nil, errors.New("not found")
+	}
+	return db, nil
 }

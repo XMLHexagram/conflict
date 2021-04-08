@@ -7,3 +7,7 @@ func ProvideLog() Log {
 func ProvideDbMap() DbMap {
 	return configService.DbMap
 }
+
+func ProvideHttp() Http {
+	return configService.Server.Http
+}
