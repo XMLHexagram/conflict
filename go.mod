@@ -1,4 +1,4 @@
-module github.com/lmx-Hexagram/conflict
+module github.com/go-conflict/conflict
 
 go 1.16
 

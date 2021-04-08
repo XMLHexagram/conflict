@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/lmx-Hexagram/conflict/internal/commands"
+	"github.com/go-conflict/conflict/internal/commands"
 	"github.com/spf13/cobra"
 	"log"
 )

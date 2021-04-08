@@ -2,7 +2,7 @@ package commands
 
 import (
 	"fmt"
-	"github.com/lmx-Hexagram/conflict/pkg"
+	"github.com/go-conflict/conflict/pkg"
 	"github.com/spf13/cobra"
 	"os"
 	"os/exec"
